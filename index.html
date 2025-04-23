@@ -147,6 +147,7 @@
         document.getElementById('assetForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const assetData = {
+	    const uuidv4=uuid.v4;
                 assetId: uuid.v4(),
                 type: document.getElementById('assetType').value,
                 model: document.getElementById('model').value,
