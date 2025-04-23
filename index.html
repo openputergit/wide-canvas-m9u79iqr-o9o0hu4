@@ -109,6 +109,8 @@
     <script>
         const appSlug = 'it-asset-management-987654';
         let assets = [];
+	const uuidv4 = uuid.v4;
+
 
         // Initialize the application
         async function init() {
@@ -147,8 +149,7 @@
         document.getElementById('assetForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const assetData = {
-	    const uuidv4=uuid.v4;
-                assetId: uuid.v4(),
+                assetId: uuidv4(),
                 type: document.getElementById('assetType').value,
                 model: document.getElementById('model').value,
                 serialNumber: document.getElementById('serialNumber').value,
