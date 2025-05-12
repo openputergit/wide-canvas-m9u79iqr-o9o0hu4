@@ -135,6 +135,7 @@
                 const data = await response.json();
                 if (data.success) {
                     assets = data.result;
+                    console.log('Fetched assets:', assets); // Log the fetched assets
                     renderAssetList();
                 }
             } catch (error) {
@@ -191,6 +192,10 @@
             const assetId = document.getElementById('assetId').value;
             const assignTo = document.getElementById('assignTo').value;
 
+            console.log('Asset ID:', assetId);
+            console.log('Assign To:', assignTo);
+            console.log('Assets before allocation:', assets);
+
             const asset = assets.find(a => a.assetId === assetId);
             if (!asset) return;
 
@@ -222,6 +227,7 @@
                 });
                 if ((await response.json()).success) {
                     await loadAssets();
+                    console.log('Assets after allocation:', assets);
                     e.target.reset();
                 }
             } catch (error) {
@@ -268,7 +274,7 @@
                 console.error('Error returning asset:', error);
             }
             hideLoading();
-        }
+        });
 
         // Show asset history
         function showHistory(assetId) {
